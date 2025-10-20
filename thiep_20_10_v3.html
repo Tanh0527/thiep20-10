@@ -1,0 +1,61 @@
+<!doctype html><html lang="vi"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Thiệp 20/10</title>
+<style>
+:root{--red:#d90429;--pink:#ffe3ea;--env:#ffd6e0}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:system-ui,Segoe UI,Roboto,Arial}
+body{display:grid;place-items:center;background:linear-gradient(180deg,#fff7fa,#ffe9f0)}
+.card{position:relative;width:min(92vw,560px);background:#fff;border-radius:22px;padding:18px;
+box-shadow:0 12px 28px rgba(0,0,0,.08)}
+.hdr{display:flex;gap:10px;align-items:center;justify-content:center;color:var(--red);margin:4px 0 10px}
+.hdr svg{width:22px;height:22px}
+h1{font-size:20px;margin:0;text-align:center}
+.env{position:relative;height:260px;display:grid;place-items:center;margin:8px 0 6px}
+.box{width:300px;height:200px;position:relative;transition:filter .4s}
+.base{position:absolute;inset:0;background:var(--env);border-radius:12px;box-shadow:inset 0 0 0 2px #ff7a99}
+.flap{position:absolute;left:0;right:0;top:0;height:52%;transform-origin:top;
+background:linear-gradient(#ff8fab,#ffb3c1);clip-path:polygon(0 0,100% 0,50% 100%);border-top-left-radius:12px;border-top-right-radius:12px;
+box-shadow:inset 0 0 0 2px #ff7a99;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.letter{position:absolute;left:10px;right:10px;bottom:10px;height:140px;background:#fff;border-radius:10px;
+box-shadow:0 8px 20px rgba(0,0,0,.08);padding:12px;overflow:auto;
+transform:translateY(42px);opacity:0;pointer-events:none;
+transition:transform .9s cubic-bezier(.2,.7,.2,1),opacity .4s ease}
+.box.open .letter{transform:translateY(-70px);opacity:1;pointer-events:auto}
+.box.open .flap{transform:rotateX(160deg)}
+p{margin:.4em 0;line-height:1.5}
+.btn{display:block;margin:6px auto 0;background:var(--red);color:#fff;border:0;border-radius:999px;padding:11px 16px;font-weight:600;cursor:pointer}
+.note{color:#666;text-align:center;margin-top:6px}
+.bgheart{position:absolute;inset:-14px;opacity:.1;pointer-events:none}
+</style>
+<div class="card">
+<svg class="bgheart" viewBox="0 0 200 180"><path d="M100 170C20 120 0 90 0 60 0 35 20 15 45 15c18 0 34 10 42 26 8-16 24-26 42-26 25 0 45 20 45 45 0 30-20 60-74 110z" fill="var(--red)"/></svg>
+<div class="hdr">
+<svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 6 4 4 6.5 4c1.74 0 3.41.81 4.5 2.09C12.09 4.81 13.76 4 15.5 4 18 4 20 6 20 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+<h1>Chúc mừng Ngày Phụ nữ Việt Nam 20/10</h1></div>
+<div class="env">
+  <div id="box" class="box">
+    <div class="base"></div>
+    <div id="flap" class="flap"></div>
+    <div class="letter">
+      <p><strong>Thân gửi gia đình yêu dấu,</strong></p>
+      <p>Chúc mừng 20/10, chúc mừng Ngày Phụ nữ Việt Nam. Chúc bà, chúc bác Dung, chúc dì của cháu, chúc mẹ của con, chúc chị Thảo và các em gái của anh luôn xinh tươi, mạnh khỏe và hạnh phúc. Chúc mọi người trong gia đình mình có dịp 20/10 thật vui vẻ và hạnh phúc! Love my family!!!</p>
+    </div>
+  </div>
+</div>
+<button id="btn" class="btn" onclick="toggleEnv()">Mở thư ❤️</button>
+<div class="note">Chúc cả nhà 20/10 thật vui và hạnh phúc!</div>
+</div>
+<script>
+let opened=false;
+const boxEl=document.getElementById('box');
+const btn=document.getElementById('btn');
+function toggleEnv(){
+  opened=!opened;
+  boxEl.classList.toggle('open', opened);
+  btn.textContent = opened ? 'Đóng thư ✨' : 'Mở thư ❤️';
+}
+// Auto open after 800ms (optional). Comment the next line if not desired.
+// setTimeout(toggleEnv, 800);
+</script>
+</html>
